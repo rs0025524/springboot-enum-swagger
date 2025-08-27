@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.api.bean.ScheduleRequest;
 import com.example.api.entity.Schedule;
+import com.example.api.entity.Week;
 import com.example.api.repo.ScheduleRepository;
 
 @RestController
@@ -23,7 +25,10 @@ public class ScheduleController {
 
 	//To add data in database
     @PostMapping("/save")
-    public Schedule createSchedule(@RequestBody Schedule schedule) {
+    public Schedule createSchedule(@RequestBody ScheduleRequest req) {
+    	Schedule schedule = new Schedule();
+    	schedule.setDay(Week.valueOf(req.getDay().toUpperCase()));
+    	schedule.setTask(req.getTask());
         return repository.save(schedule);
     }
     
