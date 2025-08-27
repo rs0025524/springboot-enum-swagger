@@ -21,12 +21,12 @@ public class ScheduleController {
         this.repository = repository;
     }
     
-    @PostMapping
+    @PostMapping("/save")
     public Schedule createSchedule(@RequestBody Schedule schedule) {
         return repository.save(schedule);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Schedule> getAllSchedules() {
         return repository.findAll();
     }
