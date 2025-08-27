@@ -26,7 +26,8 @@ public class ScheduleController {
     public Schedule createSchedule(@RequestBody Schedule schedule) {
         return repository.save(schedule);
     }
-
+    
+    //to get all data
     @GetMapping("/getAll")
     public List<Schedule> getAllSchedules() {
         return repository.findAll();
