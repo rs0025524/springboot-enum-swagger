@@ -20,7 +20,8 @@ public class ScheduleController {
     public ScheduleController(ScheduleRepository repository) {
         this.repository = repository;
     }
-    
+
+	//To add data in database
     @PostMapping("/save")
     public Schedule createSchedule(@RequestBody Schedule schedule) {
         return repository.save(schedule);
