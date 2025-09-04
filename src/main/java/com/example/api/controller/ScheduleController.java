@@ -36,6 +36,7 @@ public class ScheduleController {
     //to get all data
     @GetMapping("/getAll")
     public List<Schedule> getAllSchedules() {
+		System.out.println("hello");
         return repository.findAll();
     }
 
