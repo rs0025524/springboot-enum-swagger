@@ -26,6 +26,7 @@ public class ScheduleController {
 	//To add data in database
     @PostMapping("/save")
     public Schedule createSchedule(@RequestBody ScheduleRequest req) {
+    	System.out.println("In create schedule");
     	Schedule schedule = new Schedule();
     	schedule.setDay(Week.valueOf(req.getDay().toUpperCase()));
     	schedule.setTask(req.getTask());
